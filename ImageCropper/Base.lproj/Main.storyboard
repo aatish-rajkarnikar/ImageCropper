@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image Cropper View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ImageCropperViewController" customModule="ImageCropper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57h-fK-m6a">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="fai-wF-XXp"/>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fai-wF-XXp" firstAttribute="top" secondItem="57h-fK-m6a" secondAttribute="top" id="2ZY-5d-ph7"/>
+                                    <constraint firstItem="fai-wF-XXp" firstAttribute="centerY" secondItem="57h-fK-m6a" secondAttribute="centerY" id="CFW-t0-8l4"/>
+                                    <constraint firstAttribute="bottom" secondItem="fai-wF-XXp" secondAttribute="bottom" id="KTk-ac-e0y"/>
+                                    <constraint firstAttribute="trailing" secondItem="fai-wF-XXp" secondAttribute="trailing" id="T8Q-qS-aQo"/>
+                                    <constraint firstItem="fai-wF-XXp" firstAttribute="centerX" secondItem="57h-fK-m6a" secondAttribute="centerX" id="Yug-gg-TIC"/>
+                                    <constraint firstItem="fai-wF-XXp" firstAttribute="leading" secondItem="57h-fK-m6a" secondAttribute="leading" id="min-Ry-dQg"/>
+                                </constraints>
+                            </scrollView>
+                            <view opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nzl-kQ-fMv" customClass="CropAreaView" customModule="ImageCropper" customModuleProvider="target">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Nzl-kQ-fMv" secondAttribute="height" multiplier="16:9" id="1Zv-rP-Kvt"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tvx-1A-Zy2">
+                                <state key="normal" title="CROP"/>
+                                <connections>
+                                    <action selector="crop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hZg-18-aIP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Tvx-1A-Zy2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1l6-k9-kkO"/>
+                            <constraint firstItem="57h-fK-m6a" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="2qb-uk-zNX"/>
+                            <constraint firstItem="Nzl-kQ-fMv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SL7-5M-cLp"/>
+                            <constraint firstItem="Nzl-kQ-fMv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VsQ-uC-uqO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Tvx-1A-Zy2" secondAttribute="bottom" constant="20" id="YlA-Eq-eXV"/>
+                            <constraint firstAttribute="trailing" secondItem="57h-fK-m6a" secondAttribute="trailing" id="ZwG-mQ-beX"/>
+                            <constraint firstAttribute="trailing" secondItem="Nzl-kQ-fMv" secondAttribute="trailing" id="cNu-zM-Mx9"/>
+                            <constraint firstItem="57h-fK-m6a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ddC-kh-skA"/>
+                            <constraint firstItem="57h-fK-m6a" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="obG-3z-19d"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cropAreaView" destination="Nzl-kQ-fMv" id="fC3-eW-Dfb"/>
+                        <outlet property="imageView" destination="fai-wF-XXp" id="YBC-1g-EJF"/>
+                        <outlet property="scrollView" destination="57h-fK-m6a" id="RkG-yY-GVq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-63.200000000000003" y="170.46476761619192"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="img" width="2560" height="1600"/>
+    </resources>
+</document>
